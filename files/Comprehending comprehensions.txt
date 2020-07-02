@@ -1,0 +1,2763 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# comprehensions\n",
+    "\n",
+    "# list, set, dict"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "numbers = list(range(10))\n",
+    "numbers"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "output = [ ]\n",
+    "for one_number in numbers:\n",
+    "    output.append(one_number * one_number)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "output"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# list comprehension\n",
+    "x = [one_number * one_number for one_number in numbers] \n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[one_number * one_number for one_number in numbers] "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0\n",
+      "1\n",
+      "4\n",
+      "9\n",
+      "16\n",
+      "25\n",
+      "36\n",
+      "49\n",
+      "64\n",
+      "81\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "[None, None, None, None, None, None, None, None, None, None]"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[print(one_number * one_number) for one_number in numbers] "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[one_number * one_number       # SELECT\n",
+    " for one_number in numbers]    # FROM "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'This Is A Bunch Of Words'"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "words = 'This is a bunch of words'.split()\n",
+    "\n",
+    "' '.join([one_word.capitalize()\n",
+    "         for one_word in words])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'This Is A Bunch Of Words'"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "'This is a bunch of words'.title()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'abcd*efgh*ijkl'"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "mylist = ['abcd', 'efgh', 'ijkl']\n",
+    "'*'.join(mylist)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "sequence item 0: expected str instance, int found",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-15-9f168fe76eec>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0mmylist\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;36m10\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m20\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m30\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m \u001b[0;34m'*'\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mjoin\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mmylist\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m: sequence item 0: expected str instance, int found"
+     ]
+    }
+   ],
+   "source": [
+    "mylist = [10, 20, 30]\n",
+    "'*'.join(mylist)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[10, 20, 30]"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "mylist"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['10', '20', '30']"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[str(x)\n",
+    " for x in mylist]  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'10*20*30'"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "'*'.join([str(x)\n",
+    "        for x in mylist]  )"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter some hex numbers: 1234 5678 90ab cdef\n"
+     ]
+    }
+   ],
+   "source": [
+    "hexnums = input(\"Enter some hex numbers: \").split()  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['1234', '5678', '90ab', 'cdef']"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "hexnums"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[4660, 22136, 37035, 52719]"
+      ]
+     },
+     "execution_count": 22,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[ int(x, 16)\n",
+    "  for x in hexnums ]     "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "116550"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sum([ int(x, 16)\n",
+    "  for x in hexnums ]     )"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter some words: This is a bunch of words\n"
+     ]
+    }
+   ],
+   "source": [
+    "words = input(\"Enter some words: \")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "19"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "4 + 2 + 1 + 5 + 2 + 5"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "19"
+      ]
+     },
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "len(words.replace(' ', ''))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "19"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sum([len(one_word)\n",
+    "  for one_word in words.split()])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[('a', 5), ('b', 10), ('c', 15)]"
+      ]
+     },
+     "execution_count": 34,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d = {'a':1, 'b':2, 'c':3}\n",
+    "\n",
+    "[ (one_item, d[one_item] * 5)\n",
+    "for one_item in d] "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['a', 'bb', 'ccc']"
+      ]
+     },
+     "execution_count": 35,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[ key * d[key]\n",
+    "  for key in d ] "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter some words: this is a test of my comprehension\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "['siht', 'si', 'a', 'tset', 'fo', 'ym', 'noisneherpmoc']"
+      ]
+     },
+     "execution_count": 36,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "def reverse_word(word):\n",
+    "    return word[::-1]\n",
+    "\n",
+    "words = input(\"Enter some words: \").split()\n",
+    "\n",
+    "[reverse_word(one_word)\n",
+    " for one_word in words]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['a', 'bb', 'ccc']"
+      ]
+     },
+     "execution_count": 38,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d = {'a':1, 'b':2, 'c':3}\n",
+    "\n",
+    "[ key * value\n",
+    "for key, value in d.items()  ] "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['##\\n',\n",
+       " '# User Database\\n',\n",
+       " '# \\n',\n",
+       " '# Note that this file is consulted directly only when the system is running\\n',\n",
+       " '# in single-user mode.  At other times this information is provided by\\n',\n",
+       " '# Open Directory.\\n',\n",
+       " '#\\n',\n",
+       " '# See the opendirectoryd(8) man page for additional information about\\n',\n",
+       " '# Open Directory.\\n',\n",
+       " '##\\n',\n",
+       " 'nobody:*:-2:-2:Unprivileged User:/var/empty:/usr/bin/false\\n',\n",
+       " 'root:*:0:0:System Administrator:/var/root:/bin/sh\\n',\n",
+       " 'daemon:*:1:1:System Services:/var/root:/usr/bin/false\\n',\n",
+       " '_uucp:*:4:4:Unix to Unix Copy Protocol:/var/spool/uucp:/usr/sbin/uucico\\n',\n",
+       " '_taskgated:*:13:13:Task Gate Daemon:/var/empty:/usr/bin/false\\n',\n",
+       " '_networkd:*:24:24:Network Services:/var/networkd:/usr/bin/false\\n',\n",
+       " '_installassistant:*:25:25:Install Assistant:/var/empty:/usr/bin/false\\n',\n",
+       " '_lp:*:26:26:Printing Services:/var/spool/cups:/usr/bin/false\\n',\n",
+       " '_postfix:*:27:27:Postfix Mail Server:/var/spool/postfix:/usr/bin/false\\n',\n",
+       " '_scsd:*:31:31:Service Configuration Service:/var/empty:/usr/bin/false\\n',\n",
+       " '_ces:*:32:32:Certificate Enrollment Service:/var/empty:/usr/bin/false\\n',\n",
+       " '_appstore:*:33:33:Mac App Store Service:/var/empty:/usr/bin/false\\n',\n",
+       " '_mcxalr:*:54:54:MCX AppLaunch:/var/empty:/usr/bin/false\\n',\n",
+       " '_appleevents:*:55:55:AppleEvents Daemon:/var/empty:/usr/bin/false\\n',\n",
+       " '_geod:*:56:56:Geo Services Daemon:/var/db/geod:/usr/bin/false\\n',\n",
+       " '_serialnumberd:*:58:58:Serial Number Daemon:/var/empty:/usr/bin/false\\n',\n",
+       " '_devdocs:*:59:59:Developer Documentation:/var/empty:/usr/bin/false\\n',\n",
+       " '_sandbox:*:60:60:Seatbelt:/var/empty:/usr/bin/false\\n',\n",
+       " '_mdnsresponder:*:65:65:mDNSResponder:/var/empty:/usr/bin/false\\n',\n",
+       " '_ard:*:67:67:Apple Remote Desktop:/var/empty:/usr/bin/false\\n',\n",
+       " '_www:*:70:70:World Wide Web Server:/Library/WebServer:/usr/bin/false\\n',\n",
+       " '_eppc:*:71:71:Apple Events User:/var/empty:/usr/bin/false\\n',\n",
+       " '_cvs:*:72:72:CVS Server:/var/empty:/usr/bin/false\\n',\n",
+       " '_svn:*:73:73:SVN Server:/var/empty:/usr/bin/false\\n',\n",
+       " '_mysql:*:74:74:MySQL Server:/var/empty:/usr/bin/false\\n',\n",
+       " '_sshd:*:75:75:sshd Privilege separation:/var/empty:/usr/bin/false\\n',\n",
+       " '_qtss:*:76:76:QuickTime Streaming Server:/var/empty:/usr/bin/false\\n',\n",
+       " '_cyrus:*:77:6:Cyrus Administrator:/var/imap:/usr/bin/false\\n',\n",
+       " '_mailman:*:78:78:Mailman List Server:/var/empty:/usr/bin/false\\n',\n",
+       " '_appserver:*:79:79:Application Server:/var/empty:/usr/bin/false\\n',\n",
+       " '_clamav:*:82:82:ClamAV Daemon:/var/virusmails:/usr/bin/false\\n',\n",
+       " '_amavisd:*:83:83:AMaViS Daemon:/var/virusmails:/usr/bin/false\\n',\n",
+       " '_jabber:*:84:84:Jabber XMPP Server:/var/empty:/usr/bin/false\\n',\n",
+       " '_appowner:*:87:87:Application Owner:/var/empty:/usr/bin/false\\n',\n",
+       " '_windowserver:*:88:88:WindowServer:/var/empty:/usr/bin/false\\n',\n",
+       " '_spotlight:*:89:89:Spotlight:/var/empty:/usr/bin/false\\n',\n",
+       " '_tokend:*:91:91:Token Daemon:/var/empty:/usr/bin/false\\n',\n",
+       " '_securityagent:*:92:92:SecurityAgent:/var/db/securityagent:/usr/bin/false\\n',\n",
+       " '_calendar:*:93:93:Calendar:/var/empty:/usr/bin/false\\n',\n",
+       " '_teamsserver:*:94:94:TeamsServer:/var/teamsserver:/usr/bin/false\\n',\n",
+       " '_update_sharing:*:95:-2:Update Sharing:/var/empty:/usr/bin/false\\n',\n",
+       " '_installer:*:96:-2:Installer:/var/empty:/usr/bin/false\\n',\n",
+       " '_atsserver:*:97:97:ATS Server:/var/empty:/usr/bin/false\\n',\n",
+       " '_ftp:*:98:-2:FTP Daemon:/var/empty:/usr/bin/false\\n',\n",
+       " '_unknown:*:99:99:Unknown User:/var/empty:/usr/bin/false\\n',\n",
+       " '_softwareupdate:*:200:200:Software Update Service:/var/db/softwareupdate:/usr/bin/false\\n',\n",
+       " '_coreaudiod:*:202:202:Core Audio Daemon:/var/empty:/usr/bin/false\\n',\n",
+       " '_screensaver:*:203:203:Screensaver:/var/empty:/usr/bin/false\\n',\n",
+       " '_locationd:*:205:205:Location Daemon:/var/db/locationd:/usr/bin/false\\n',\n",
+       " '_trustevaluationagent:*:208:208:Trust Evaluation Agent:/var/empty:/usr/bin/false\\n',\n",
+       " '_timezone:*:210:210:AutoTimeZoneDaemon:/var/empty:/usr/bin/false\\n',\n",
+       " '_lda:*:211:211:Local Delivery Agent:/var/empty:/usr/bin/false\\n',\n",
+       " '_cvmsroot:*:212:212:CVMS Root:/var/empty:/usr/bin/false\\n',\n",
+       " '_usbmuxd:*:213:213:iPhone OS Device Helper:/var/db/lockdown:/usr/bin/false\\n',\n",
+       " '_dovecot:*:214:6:Dovecot Administrator:/var/empty:/usr/bin/false\\n',\n",
+       " '_dpaudio:*:215:215:DP Audio:/var/empty:/usr/bin/false\\n',\n",
+       " '_postgres:*:216:216:PostgreSQL Server:/var/empty:/usr/bin/false\\n',\n",
+       " '_krbtgt:*:217:-2:Kerberos Ticket Granting Ticket:/var/empty:/usr/bin/false\\n',\n",
+       " '_kadmin_admin:*:218:-2:Kerberos Admin Service:/var/empty:/usr/bin/false\\n',\n",
+       " '_kadmin_changepw:*:219:-2:Kerberos Change Password Service:/var/empty:/usr/bin/false\\n',\n",
+       " '_devicemgr:*:220:220:Device Management Server:/var/empty:/usr/bin/false\\n',\n",
+       " '_webauthserver:*:221:221:Web Auth Server:/var/empty:/usr/bin/false\\n',\n",
+       " '_netbios:*:222:222:NetBIOS:/var/empty:/usr/bin/false\\n',\n",
+       " '_warmd:*:224:224:Warm Daemon:/var/empty:/usr/bin/false\\n',\n",
+       " '_dovenull:*:227:227:Dovecot Authentication:/var/empty:/usr/bin/false\\n',\n",
+       " '_netstatistics:*:228:228:Network Statistics Daemon:/var/empty:/usr/bin/false\\n',\n",
+       " '_avbdeviced:*:229:-2:Ethernet AVB Device Daemon:/var/empty:/usr/bin/false\\n',\n",
+       " '_krb_krbtgt:*:230:-2:Open Directory Kerberos Ticket Granting Ticket:/var/empty:/usr/bin/false\\n',\n",
+       " '_krb_kadmin:*:231:-2:Open Directory Kerberos Admin Service:/var/empty:/usr/bin/false\\n',\n",
+       " '_krb_changepw:*:232:-2:Open Directory Kerberos Change Password Service:/var/empty:/usr/bin/false\\n',\n",
+       " '_krb_kerberos:*:233:-2:Open Directory Kerberos:/var/empty:/usr/bin/false\\n',\n",
+       " '_krb_anonymous:*:234:-2:Open Directory Kerberos Anonymous:/var/empty:/usr/bin/false\\n',\n",
+       " '_assetcache:*:235:235:Asset Cache Service:/var/empty:/usr/bin/false\\n',\n",
+       " '_coremediaiod:*:236:236:Core Media IO Daemon:/var/empty:/usr/bin/false\\n',\n",
+       " '_launchservicesd:*:239:239:_launchservicesd:/var/empty:/usr/bin/false\\n',\n",
+       " '_iconservices:*:240:240:IconServices:/var/empty:/usr/bin/false\\n',\n",
+       " '_distnote:*:241:241:DistNote:/var/empty:/usr/bin/false\\n',\n",
+       " '_nsurlsessiond:*:242:242:NSURLSession Daemon:/var/db/nsurlsessiond:/usr/bin/false\\n',\n",
+       " '_nsurlstoraged:*:243:243:NSURLStorage Daemon:/var/db/nsurlstoraged:/usr/bin/false\\n',\n",
+       " '_displaypolicyd:*:244:244:Display Policy Daemon:/var/empty:/usr/bin/false\\n',\n",
+       " '_astris:*:245:245:Astris Services:/var/db/astris:/usr/bin/false\\n',\n",
+       " '_krbfast:*:246:-2:Kerberos FAST Account:/var/empty:/usr/bin/false\\n',\n",
+       " '_gamecontrollerd:*:247:247:Game Controller Daemon:/var/empty:/usr/bin/false\\n',\n",
+       " '_mbsetupuser:*:248:248:Setup User:/var/setup:/bin/bash\\n',\n",
+       " '_ondemand:*:249:249:On Demand Resource Daemon:/var/db/ondemand:/usr/bin/false\\n',\n",
+       " '_xserverdocs:*:251:251:macOS Server Documents Service:/var/empty:/usr/bin/false\\n',\n",
+       " '_wwwproxy:*:252:252:WWW Proxy:/var/empty:/usr/bin/false\\n',\n",
+       " '_mobileasset:*:253:253:MobileAsset User:/var/ma:/usr/bin/false\\n',\n",
+       " '_findmydevice:*:254:254:Find My Device Daemon:/var/db/findmydevice:/usr/bin/false\\n',\n",
+       " '_datadetectors:*:257:257:DataDetectors:/var/db/datadetectors:/usr/bin/false\\n',\n",
+       " '_captiveagent:*:258:258:captiveagent:/var/empty:/usr/bin/false\\n',\n",
+       " '_ctkd:*:259:259:ctkd Account:/var/empty:/usr/bin/false\\n',\n",
+       " '_applepay:*:260:260:applepay Account:/var/db/applepay:/usr/bin/false\\n',\n",
+       " '_hidd:*:261:261:HID Service User:/var/db/hidd:/usr/bin/false\\n',\n",
+       " '_cmiodalassistants:*:262:262:CoreMedia IO Assistants User:/var/db/cmiodalassistants:/usr/bin/false\\n',\n",
+       " '_analyticsd:*:263:263:Analytics Daemon:/var/db/analyticsd:/usr/bin/false\\n',\n",
+       " '_fpsd:*:265:265:FPS Daemon:/var/db/fpsd:/usr/bin/false\\n',\n",
+       " '_timed:*:266:266:Time Sync Daemon:/var/db/timed:/usr/bin/false\\n']"
+      ]
+     },
+     "execution_count": 39,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[one_line\n",
+    "for one_line in open('/etc/passwd')]   "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['nobody',\n",
+       " 'root',\n",
+       " 'daemon',\n",
+       " '_uucp',\n",
+       " '_taskgated',\n",
+       " '_networkd',\n",
+       " '_installassistant',\n",
+       " '_lp',\n",
+       " '_postfix',\n",
+       " '_scsd',\n",
+       " '_ces',\n",
+       " '_appstore',\n",
+       " '_mcxalr',\n",
+       " '_appleevents',\n",
+       " '_geod',\n",
+       " '_serialnumberd',\n",
+       " '_devdocs',\n",
+       " '_sandbox',\n",
+       " '_mdnsresponder',\n",
+       " '_ard',\n",
+       " '_www',\n",
+       " '_eppc',\n",
+       " '_cvs',\n",
+       " '_svn',\n",
+       " '_mysql',\n",
+       " '_sshd',\n",
+       " '_qtss',\n",
+       " '_cyrus',\n",
+       " '_mailman',\n",
+       " '_appserver',\n",
+       " '_clamav',\n",
+       " '_amavisd',\n",
+       " '_jabber',\n",
+       " '_appowner',\n",
+       " '_windowserver',\n",
+       " '_spotlight',\n",
+       " '_tokend',\n",
+       " '_securityagent',\n",
+       " '_calendar',\n",
+       " '_teamsserver',\n",
+       " '_update_sharing',\n",
+       " '_installer',\n",
+       " '_atsserver',\n",
+       " '_ftp',\n",
+       " '_unknown',\n",
+       " '_softwareupdate',\n",
+       " '_coreaudiod',\n",
+       " '_screensaver',\n",
+       " '_locationd',\n",
+       " '_trustevaluationagent',\n",
+       " '_timezone',\n",
+       " '_lda',\n",
+       " '_cvmsroot',\n",
+       " '_usbmuxd',\n",
+       " '_dovecot',\n",
+       " '_dpaudio',\n",
+       " '_postgres',\n",
+       " '_krbtgt',\n",
+       " '_kadmin_admin',\n",
+       " '_kadmin_changepw',\n",
+       " '_devicemgr',\n",
+       " '_webauthserver',\n",
+       " '_netbios',\n",
+       " '_warmd',\n",
+       " '_dovenull',\n",
+       " '_netstatistics',\n",
+       " '_avbdeviced',\n",
+       " '_krb_krbtgt',\n",
+       " '_krb_kadmin',\n",
+       " '_krb_changepw',\n",
+       " '_krb_kerberos',\n",
+       " '_krb_anonymous',\n",
+       " '_assetcache',\n",
+       " '_coremediaiod',\n",
+       " '_launchservicesd',\n",
+       " '_iconservices',\n",
+       " '_distnote',\n",
+       " '_nsurlsessiond',\n",
+       " '_nsurlstoraged',\n",
+       " '_displaypolicyd',\n",
+       " '_astris',\n",
+       " '_krbfast',\n",
+       " '_gamecontrollerd',\n",
+       " '_mbsetupuser',\n",
+       " '_ondemand',\n",
+       " '_xserverdocs',\n",
+       " '_wwwproxy',\n",
+       " '_mobileasset',\n",
+       " '_findmydevice',\n",
+       " '_datadetectors',\n",
+       " '_captiveagent',\n",
+       " '_ctkd',\n",
+       " '_applepay',\n",
+       " '_hidd',\n",
+       " '_cmiodalassistants',\n",
+       " '_analyticsd',\n",
+       " '_fpsd',\n",
+       " '_timed']"
+      ]
+     },
+     "execution_count": 42,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[one_line.split(\":\")[0]              # SELECT\n",
+    " for one_line in open('/etc/passwd')    # FROM\n",
+    " if not one_line.startswith(\"#\")]     # WHERE"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "120"
+      ]
+     },
+     "execution_count": 43,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#  given a list of integers, sum the factorial of each integer\n",
+    "\n",
+    "def fact(n):\n",
+    "    if n <= 1:\n",
+    "        return 1\n",
+    "    else:\n",
+    "        return n * fact(n-1)\n",
+    "    \n",
+    "fact(5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000"
+      ]
+     },
+     "execution_count": 44,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "fact(100)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "range(0, 5)"
+      ]
+     },
+     "execution_count": 45,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "numbers = range(5)\n",
+    "numbers"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 48,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "153"
+      ]
+     },
+     "execution_count": 48,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "numbers = range(1,6)\n",
+    "sum([fact(one_number)\n",
+    "for one_number in numbers])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['67.218.116.165',\n",
+       " '66.249.71.65',\n",
+       " '65.55.106.183',\n",
+       " '65.55.106.183',\n",
+       " '66.249.71.65',\n",
+       " '66.249.71.65',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '65.55.106.131',\n",
+       " '65.55.106.131',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '65.55.106.186',\n",
+       " '65.55.106.186',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '74.52.245.146',\n",
+       " '74.52.245.146',\n",
+       " '66.249.65.43',\n",
+       " '66.249.65.43',\n",
+       " '66.249.65.43',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '65.55.207.25',\n",
+       " '65.55.207.25',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '65.55.207.94',\n",
+       " '65.55.207.94',\n",
+       " '66.249.65.12',\n",
+       " '65.55.207.71',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.12',\n",
+       " '98.242.170.241',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '65.55.207.126',\n",
+       " '65.55.207.126',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '82.34.9.20',\n",
+       " '82.34.9.20',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '65.55.106.155',\n",
+       " '65.55.106.155',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '65.55.207.77',\n",
+       " '65.55.207.77',\n",
+       " '66.249.65.38',\n",
+       " '67.218.116.165',\n",
+       " '66.249.65.38',\n",
+       " '208.80.193.28',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '89.248.172.58',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '67.195.112.35',\n",
+       " '67.195.112.35',\n",
+       " '67.195.112.35',\n",
+       " '67.195.112.35',\n",
+       " '67.195.112.35',\n",
+       " '67.195.112.35',\n",
+       " '67.195.112.35',\n",
+       " '67.195.112.35',\n",
+       " '67.195.112.35',\n",
+       " '67.195.112.35',\n",
+       " '67.195.112.35',\n",
+       " '67.195.112.35',\n",
+       " '67.195.112.35',\n",
+       " '67.195.112.35',\n",
+       " '67.195.112.35',\n",
+       " '67.195.112.35',\n",
+       " '66.249.65.38',\n",
+       " '65.55.207.50',\n",
+       " '65.55.207.50',\n",
+       " '65.55.207.50',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '65.55.215.75',\n",
+       " '65.55.215.75',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.38']"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "filename = '/Users/reuven/Consulting/Courses/Python/Programs/Files/mini-access-log.txt'\n",
+    "\n",
+    "[one_line.split()[0]\n",
+    "for one_line in open(filename)]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 54,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Counter({10: 2, 20: 3, 30: 4, 40: 2})"
+      ]
+     },
+     "execution_count": 54,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "from collections import Counter\n",
+    "\n",
+    "Counter([10, 20, 30, 20, 30, 10, 20, 30, 30, 40, 40])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "67.218.116.165......2\n",
+      "66.249.71.65........3\n",
+      "65.55.106.183.......2\n",
+      "66.249.65.12........32\n",
+      "65.55.106.131.......2\n",
+      "65.55.106.186.......2\n",
+      "74.52.245.146.......2\n",
+      "66.249.65.43........3\n",
+      "65.55.207.25........2\n",
+      "65.55.207.94........2\n",
+      "65.55.207.71........1\n",
+      "98.242.170.241......1\n",
+      "66.249.65.38........100\n",
+      "65.55.207.126.......2\n",
+      "82.34.9.20..........2\n",
+      "65.55.106.155.......2\n",
+      "65.55.207.77........2\n",
+      "208.80.193.28.......1\n",
+      "89.248.172.58.......22\n",
+      "67.195.112.35.......16\n",
+      "65.55.207.50........3\n",
+      "65.55.215.75........2\n"
+     ]
+    }
+   ],
+   "source": [
+    "from collections import Counter \n",
+    "ip_addresses = Counter([one_line.split()[0]\n",
+    "            for one_line in open(filename)])\n",
+    "\n",
+    "for address, count in ip_addresses.items():\n",
+    "    print(f\"{address:.<20}{count}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[('root', '0'),\n",
+       " ('daemon', '1'),\n",
+       " ('bin', '2'),\n",
+       " ('sys', '3'),\n",
+       " ('sync', '4'),\n",
+       " ('games', '5'),\n",
+       " ('man', '6'),\n",
+       " ('lp', '7'),\n",
+       " ('mail', '8'),\n",
+       " ('news', '9'),\n",
+       " ('uucp', '10'),\n",
+       " ('proxy', '13'),\n",
+       " ('www-data', '33'),\n",
+       " ('backup', '34'),\n",
+       " ('list', '38'),\n",
+       " ('irc', '39'),\n",
+       " ('gnats', '41'),\n",
+       " ('nobody', '65534'),\n",
+       " ('syslog', '101'),\n",
+       " ('messagebus', '102'),\n",
+       " ('landscape', '103'),\n",
+       " ('jci', '955'),\n",
+       " ('sshd', '104'),\n",
+       " ('user', '1000'),\n",
+       " ('reuven', '1001'),\n",
+       " ('postfix', '105'),\n",
+       " ('colord', '106'),\n",
+       " ('postgres', '107'),\n",
+       " ('dovecot', '108'),\n",
+       " ('dovenull', '109'),\n",
+       " ('postgrey', '110'),\n",
+       " ('debian-spamd', '111'),\n",
+       " ('memcache', '113'),\n",
+       " ('genadi', '1002'),\n",
+       " ('shira', '1003'),\n",
+       " ('atara', '1004'),\n",
+       " ('shikma', '1005'),\n",
+       " ('amotz', '1006'),\n",
+       " ('mysql', '114'),\n",
+       " ('clamav', '115'),\n",
+       " ('amavis', '116'),\n",
+       " ('opendkim', '117'),\n",
+       " ('gitlab-redis', '999'),\n",
+       " ('gitlab-psql', '998'),\n",
+       " ('git', '1007'),\n",
+       " ('opendmarc', '118'),\n",
+       " ('dkim-milter-python', '119'),\n",
+       " ('deploy', '1008'),\n",
+       " ('redis', '112')]"
+      ]
+     },
+     "execution_count": 46,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[tuple(one_line.split(\":\")[:3:2])\n",
+    "for one_line in open('Files/linux-etc-passwd.txt')\n",
+    "if one_line.strip() and not one_line.startswith(\"#\")   ]"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "(4) Create, from linux-etc-passwd.txt, a list of tuples\n",
+    "    in which each tuple is (username, user_id) .\n",
+    "    username is field index 0, user_id is field index 2\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'208.80.193.28',\n",
+       " '65.55.106.131',\n",
+       " '65.55.106.155',\n",
+       " '65.55.106.183',\n",
+       " '65.55.106.186',\n",
+       " '65.55.207.126',\n",
+       " '65.55.207.25',\n",
+       " '65.55.207.50',\n",
+       " '65.55.207.71',\n",
+       " '65.55.207.77',\n",
+       " '65.55.207.94',\n",
+       " '65.55.215.75',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.43',\n",
+       " '66.249.71.65',\n",
+       " '67.195.112.35',\n",
+       " '67.218.116.165',\n",
+       " '74.52.245.146',\n",
+       " '82.34.9.20',\n",
+       " '89.248.172.58',\n",
+       " '98.242.170.241'}"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "filename = 'Files/mini-access-log.txt'\n",
+    "set([one_line.split()[0]\n",
+    "for one_line in open(filename)]) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'208.80.193.28',\n",
+       " '65.55.106.131',\n",
+       " '65.55.106.155',\n",
+       " '65.55.106.183',\n",
+       " '65.55.106.186',\n",
+       " '65.55.207.126',\n",
+       " '65.55.207.25',\n",
+       " '65.55.207.50',\n",
+       " '65.55.207.71',\n",
+       " '65.55.207.77',\n",
+       " '65.55.207.94',\n",
+       " '65.55.215.75',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.43',\n",
+       " '66.249.71.65',\n",
+       " '67.195.112.35',\n",
+       " '67.218.116.165',\n",
+       " '74.52.245.146',\n",
+       " '82.34.9.20',\n",
+       " '89.248.172.58',\n",
+       " '98.242.170.241'}"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# set comprehension \n",
+    "{ one_line.split()[0]\n",
+    "for one_line in open(filename) }"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'This', 'a', 'and', 'bunch', 'is', 'of', 'this', 'words'}"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "words = 'This is a bunch of words and a bunch of words this is'\n",
+    "\n",
+    "{one_word\n",
+    "for one_word in words.split() }"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "15"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sum({len(one_word)\n",
+    "for one_word in words.split() })"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'208.80.193.28',\n",
+       " '65.55.106.131',\n",
+       " '65.55.106.155',\n",
+       " '65.55.106.183',\n",
+       " '65.55.106.186',\n",
+       " '65.55.207.126',\n",
+       " '65.55.207.25',\n",
+       " '65.55.207.50',\n",
+       " '65.55.207.71',\n",
+       " '65.55.207.77',\n",
+       " '65.55.207.94',\n",
+       " '65.55.215.75',\n",
+       " '66.249.65.12',\n",
+       " '66.249.65.38',\n",
+       " '66.249.65.43',\n",
+       " '66.249.71.65',\n",
+       " '67.195.112.35',\n",
+       " '67.218.116.165',\n",
+       " '74.52.245.146',\n",
+       " '82.34.9.20',\n",
+       " '89.248.172.58',\n",
+       " '98.242.170.241'}"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "{ one_line.split()[0]\n",
+    "for one_line in open(filename) }"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter some numbers: 1 2 3 1 2 3\n"
+     ]
+    }
+   ],
+   "source": [
+    "# sum distinct numbers that the user gives us\n",
+    "\n",
+    "numbers = input(\"Enter some numbers: \").split()\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['1', '2', '3', '1', '2', '3']"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "numbers"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "6"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sum({int(one_number)\n",
+    "for one_number in numbers})"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5\r\n",
+      "\t10     \r\n",
+      "\t20\r\n",
+      "  \t3\r\n",
+      "\t\t   \t20        \r\n",
+      "\r\n",
+      " 25\r\n"
+     ]
+    }
+   ],
+   "source": [
+    "%cat Files/nums.txt"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "63"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sum({int(one_line)\n",
+    "for one_line in open('Files/nums.txt')\n",
+    "if one_line.strip() })   "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "63"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "5 + 10 + 20 + 3 + 25"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "filename = 'Files/linux-etc-passwd.txt'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'/bin/bash',\n",
+       " '/bin/false',\n",
+       " '/bin/nologin',\n",
+       " '/bin/sh',\n",
+       " '/bin/sync',\n",
+       " '/usr/sbin/nologin'}"
+      ]
+     },
+     "execution_count": 39,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "{one_line.rstrip().split(\":\")[-1]\n",
+    "for one_line in open(filename)\n",
+    "if one_line.strip() and not one_line.startswith(\"#\") }  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'root': '0',\n",
+       " 'daemon': '1',\n",
+       " 'bin': '2',\n",
+       " 'sys': '3',\n",
+       " 'sync': '4',\n",
+       " 'games': '5',\n",
+       " 'man': '6',\n",
+       " 'lp': '7',\n",
+       " 'mail': '8',\n",
+       " 'news': '9',\n",
+       " 'uucp': '10',\n",
+       " 'proxy': '13',\n",
+       " 'www-data': '33',\n",
+       " 'backup': '34',\n",
+       " 'list': '38',\n",
+       " 'irc': '39',\n",
+       " 'gnats': '41',\n",
+       " 'nobody': '65534',\n",
+       " 'syslog': '101',\n",
+       " 'messagebus': '102',\n",
+       " 'landscape': '103',\n",
+       " 'jci': '955',\n",
+       " 'sshd': '104',\n",
+       " 'user': '1000',\n",
+       " 'reuven': '1001',\n",
+       " 'postfix': '105',\n",
+       " 'colord': '106',\n",
+       " 'postgres': '107',\n",
+       " 'dovecot': '108',\n",
+       " 'dovenull': '109',\n",
+       " 'postgrey': '110',\n",
+       " 'debian-spamd': '111',\n",
+       " 'memcache': '113',\n",
+       " 'genadi': '1002',\n",
+       " 'shira': '1003',\n",
+       " 'atara': '1004',\n",
+       " 'shikma': '1005',\n",
+       " 'amotz': '1006',\n",
+       " 'mysql': '114',\n",
+       " 'clamav': '115',\n",
+       " 'amavis': '116',\n",
+       " 'opendkim': '117',\n",
+       " 'gitlab-redis': '999',\n",
+       " 'gitlab-psql': '998',\n",
+       " 'git': '1007',\n",
+       " 'opendmarc': '118',\n",
+       " 'dkim-milter-python': '119',\n",
+       " 'deploy': '1008',\n",
+       " 'redis': '112'}"
+      ]
+     },
+     "execution_count": 49,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "dict([one_line.split(\":\")[:3:2]\n",
+    "for one_line in open('Files/linux-etc-passwd.txt')\n",
+    "if one_line.strip() and not one_line.startswith(\"#\")])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 50,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'root': '0',\n",
+       " 'daemon': '1',\n",
+       " 'bin': '2',\n",
+       " 'sys': '3',\n",
+       " 'sync': '4',\n",
+       " 'games': '5',\n",
+       " 'man': '6',\n",
+       " 'lp': '7',\n",
+       " 'mail': '8',\n",
+       " 'news': '9',\n",
+       " 'uucp': '10',\n",
+       " 'proxy': '13',\n",
+       " 'www-data': '33',\n",
+       " 'backup': '34',\n",
+       " 'list': '38',\n",
+       " 'irc': '39',\n",
+       " 'gnats': '41',\n",
+       " 'nobody': '65534',\n",
+       " 'syslog': '101',\n",
+       " 'messagebus': '102',\n",
+       " 'landscape': '103',\n",
+       " 'jci': '955',\n",
+       " 'sshd': '104',\n",
+       " 'user': '1000',\n",
+       " 'reuven': '1001',\n",
+       " 'postfix': '105',\n",
+       " 'colord': '106',\n",
+       " 'postgres': '107',\n",
+       " 'dovecot': '108',\n",
+       " 'dovenull': '109',\n",
+       " 'postgrey': '110',\n",
+       " 'debian-spamd': '111',\n",
+       " 'memcache': '113',\n",
+       " 'genadi': '1002',\n",
+       " 'shira': '1003',\n",
+       " 'atara': '1004',\n",
+       " 'shikma': '1005',\n",
+       " 'amotz': '1006',\n",
+       " 'mysql': '114',\n",
+       " 'clamav': '115',\n",
+       " 'amavis': '116',\n",
+       " 'opendkim': '117',\n",
+       " 'gitlab-redis': '999',\n",
+       " 'gitlab-psql': '998',\n",
+       " 'git': '1007',\n",
+       " 'opendmarc': '118',\n",
+       " 'dkim-milter-python': '119',\n",
+       " 'deploy': '1008',\n",
+       " 'redis': '112'}"
+      ]
+     },
+     "execution_count": 50,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# dict comprehension\n",
+    "{ one_line.split(\":\")[0]     :    one_line.split(\":\")[2]\n",
+    "for one_line in open('Files/linux-etc-passwd.txt')\n",
+    "if one_line.strip() and not one_line.startswith(\"#\") } "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'This': 4, 'is': 2, 'a': 1, 'bunch': 5, 'of': 2, 'words': 5}"
+      ]
+     },
+     "execution_count": 51,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "words = \"This is a bunch of words\"\n",
+    "\n",
+    "{  one_word : len(one_word)\n",
+    " for one_word in words.split() }"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 53,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'is': 2, 'a': 1, 'of': 2}"
+      ]
+     },
+     "execution_count": 53,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "{  one_word : len(one_word)\n",
+    " for one_word in words.split() \n",
+    "if one_word.startswith(('a', 'e', 'i', 'o', 'u')) }"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 54,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'This': 4, 'bunch': 5, 'words': 5}"
+      ]
+     },
+     "execution_count": 54,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "{  one_word : len(one_word)\n",
+    " for one_word in words.split() \n",
+    "if not one_word.startswith(('a', 'e', 'i', 'o', 'u')) }"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 55,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "97"
+      ]
+     },
+     "execution_count": 55,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "ord('a')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 56,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "97"
+      ]
+     },
+     "execution_count": 56,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "ord('a')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 57,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "98"
+      ]
+     },
+     "execution_count": 57,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "ord('b')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "6"
+      ]
+     },
+     "execution_count": 59,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "def word_score(word):\n",
+    "    return sum([ord(letter) - 96\n",
+    "        for letter in word.lower() ])\n",
+    "\n",
+    "word_score('abc')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "-90"
+      ]
+     },
+     "execution_count": 60,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "word_score('ABC')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 61,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter some words: this is a bunch of words\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'this': 56, 'is': 28, 'a': 1, 'bunch': 48, 'of': 21, 'words': 79}"
+      ]
+     },
+     "execution_count": 61,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "words = input(\"Enter some words: \")\n",
+    "{ one_word : word_score(one_word)\n",
+    "for one_word in words.split() }"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter some words: this is a bunch of words\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'this': 56, 'bunch': 48, 'words': 79}"
+      ]
+     },
+     "execution_count": 62,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "words = input(\"Enter some words: \")\n",
+    "{ one_word : word_score(one_word)\n",
+    "for one_word in words.split()\n",
+    "if len(one_word) >= 3 and len(one_word) <= 7}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{1: 'a', 2: 'b', 3: 'c'}"
+      ]
+     },
+     "execution_count": 63,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d = {'a':1, 'b':2, 'c':3}\n",
+    "\n",
+    "{ value : key\n",
+    " for key, value in d.items() }"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{1: 'a', 2: 'e', 3: 'd'}"
+      ]
+     },
+     "execution_count": 64,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d = {'a':1, 'b':2, 'c':3, 'd':3, 'e':2}\n",
+    "\n",
+    "{ value : key\n",
+    " for key, value in d.items() }"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 68,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "words_set = {one_word.strip()\n",
+    "             for one_word in open('Files/words')}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 69,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "235886"
+      ]
+     },
+     "execution_count": 69,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "len(words_set)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 70,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['Heracliteanism',\n",
+       " 'golandause',\n",
+       " 'Zimmerwaldian',\n",
+       " 'spirantic',\n",
+       " 'fright',\n",
+       " 'tyranny',\n",
+       " 'Symphoricarpos',\n",
+       " 'ursicide',\n",
+       " 'ulatrophia',\n",
+       " 'gobo']"
+      ]
+     },
+     "execution_count": 70,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "list(words_set)[:10]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter a sentence: this is a floople test\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'this': True, 'is': True, 'a': True, 'floople': False, 'test': True}"
+      ]
+     },
+     "execution_count": 71,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "words = input(\"Enter a sentence: \")\n",
+    "\n",
+    "{ one_word : one_word in words_set\n",
+    "  for one_word in words.split() }"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 72,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[10, 20, 30, 40, 50, 60, 70, 80, 90]"
+      ]
+     },
+     "execution_count": 72,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "mylist = [[10, 20, 30], [40, 50, 60], [70, 80, 90]]  \n",
+    "\n",
+    "sum(mylist, [])  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 73,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[[10, 20, 30], [40, 50, 60], [70, 80, 90]]"
+      ]
+     },
+     "execution_count": 73,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[one_item\n",
+    " for one_item in mylist ]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 74,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[10, 20, 30, 40, 50, 60, 70, 80, 90]"
+      ]
+     },
+     "execution_count": 74,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# nested list comprehension\n",
+    "[one_item\n",
+    " for sublist in mylist\n",
+    " for one_item in sublist ]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 75,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[10, 20, 30, 40, 50, 60, 70, 80, 90]"
+      ]
+     },
+     "execution_count": 75,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# nested list comprehension\n",
+    "[one_item\n",
+    " for sublist in mylist\n",
+    " for one_item in sublist ]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 76,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[(0, 0),\n",
+       " (0, 1),\n",
+       " (0, 2),\n",
+       " (0, 3),\n",
+       " (0, 4),\n",
+       " (1, 0),\n",
+       " (1, 1),\n",
+       " (1, 2),\n",
+       " (1, 3),\n",
+       " (1, 4),\n",
+       " (2, 0),\n",
+       " (2, 1),\n",
+       " (2, 2),\n",
+       " (2, 3),\n",
+       " (2, 4),\n",
+       " (3, 0),\n",
+       " (3, 1),\n",
+       " (3, 2),\n",
+       " (3, 3),\n",
+       " (3, 4),\n",
+       " (4, 0),\n",
+       " (4, 1),\n",
+       " (4, 2),\n",
+       " (4, 3),\n",
+       " (4, 4)]"
+      ]
+     },
+     "execution_count": 76,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[(x,y) \n",
+    " for x in range(5)\n",
+    " for y in range(5)]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 78,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[(0, 1), (0, 3), (2, 1), (2, 3), (4, 1), (4, 3)]"
+      ]
+     },
+     "execution_count": 78,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[(x,y) \n",
+    " for x in range(5)\n",
+    " if not x % 2\n",
+    " for y in range(5)\n",
+    " if y % 2 ]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 79,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "places = {'Israel': ['Jerusalem', 'Tel Aviv'],\n",
+    "'USA': ['Boston', 'New York', 'Chicago'],\n",
+    "'China': ['Beijing', 'Shanghai']} \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 80,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'Israel': ['Jerusalem', 'Tel Aviv'],\n",
+       " 'USA': ['Boston', 'New York', 'Chicago'],\n",
+       " 'China': ['Beijing', 'Shanghai']}"
+      ]
+     },
+     "execution_count": 80,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "places"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 81,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[('Jerusalem', 'Israel'),\n",
+       " ('Tel Aviv', 'Israel'),\n",
+       " ('Boston', 'USA'),\n",
+       " ('New York', 'USA'),\n",
+       " ('Chicago', 'USA'),\n",
+       " ('Beijing', 'China'),\n",
+       " ('Shanghai', 'China')]"
+      ]
+     },
+     "execution_count": 81,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[ (one_city, country)\n",
+    " for country, all_cities in places.items()\n",
+    " for one_city in all_cities] "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 82,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[('Jerusalem', 'Israel'),\n",
+       " ('Tel Aviv', 'Israel'),\n",
+       " ('Beijing', 'China'),\n",
+       " ('Shanghai', 'China')]"
+      ]
+     },
+     "execution_count": 82,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[ (one_city, country)\n",
+    " for country, all_cities in places.items()\n",
+    " if len(country) > 3\n",
+    " for one_city in all_cities] "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 84,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[(0, 5), (1, 4), (2, 3), (3, 2), (4, 1), (5, 0)]"
+      ]
+     },
+     "execution_count": 84,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "def sums_to_n(n):\n",
+    "    return [(x,y)\n",
+    "            for x in range(n+1)\n",
+    "            for y in range(n+1)\n",
+    "           if x+y == n]\n",
+    "\n",
+    "sums_to_n(5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 89,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['71',\n",
+       " '38',\n",
+       " '82',\n",
+       " '172',\n",
+       " '12',\n",
+       " '34',\n",
+       " '43',\n",
+       " '193',\n",
+       " '215',\n",
+       " '195',\n",
+       " '75',\n",
+       " '249',\n",
+       " '131',\n",
+       " '67',\n",
+       " '66',\n",
+       " '77',\n",
+       " '52',\n",
+       " '146',\n",
+       " '55',\n",
+       " '245',\n",
+       " '170',\n",
+       " '74',\n",
+       " '208',\n",
+       " '25',\n",
+       " '116',\n",
+       " '112',\n",
+       " '155',\n",
+       " '207',\n",
+       " '80',\n",
+       " '35',\n",
+       " '186',\n",
+       " '248',\n",
+       " '89',\n",
+       " '50',\n",
+       " '65',\n",
+       " '94',\n",
+       " '98',\n",
+       " '218',\n",
+       " '28',\n",
+       " '58',\n",
+       " '20',\n",
+       " '241',\n",
+       " '183',\n",
+       " '126',\n",
+       " '9',\n",
+       " '242',\n",
+       " '165',\n",
+       " '106']"
+      ]
+     },
+     "execution_count": 89,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "list({one_octet\n",
+    "for one_line in open('Files/mini-access-log.txt')\n",
+    "for one_octet in one_line.split()[0].split('.')} )"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "[x*x                  # map -- SELECT\n",
+    "for x in range(10)    # FROM\n",
+    "if x%2 ]              # filter -- WHERE \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Adidas\torange\t43\r\n",
+      "Nike\tblack\t41\r\n",
+      "Adidas\tblack\t39\r\n",
+      "New Balance\tpink\t41\r\n",
+      "Nike\twhite\t44\r\n",
+      "New Balance\torange\t38\r\n",
+      "Nike\tpink\t44\r\n",
+      "Adidas\tpink\t44\r\n",
+      "New Balance\torange\t39\r\n",
+      "New Balance\tblack\t43\r\n"
+     ]
+    }
+   ],
+   "source": [
+    "!head Files/shoe-data.txt"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'brand': 'Adidas', 'color': 'orange', 'size': '43'}\n",
+      "{'brand': 'Nike', 'color': 'black', 'size': '41'}\n",
+      "{'brand': 'Adidas', 'color': 'black', 'size': '39'}\n",
+      "{'brand': 'New Balance', 'color': 'pink', 'size': '41'}\n",
+      "{'brand': 'Nike', 'color': 'white', 'size': '44'}\n",
+      "{'brand': 'New Balance', 'color': 'orange', 'size': '38'}\n",
+      "{'brand': 'Nike', 'color': 'pink', 'size': '44'}\n",
+      "{'brand': 'Adidas', 'color': 'pink', 'size': '44'}\n",
+      "{'brand': 'New Balance', 'color': 'orange', 'size': '39'}\n",
+      "{'brand': 'New Balance', 'color': 'black', 'size': '43'}\n",
+      "{'brand': 'New Balance', 'color': 'orange', 'size': '44'}\n",
+      "{'brand': 'Nike', 'color': 'black', 'size': '41'}\n",
+      "{'brand': 'Adidas', 'color': 'orange', 'size': '37'}\n",
+      "{'brand': 'Adidas', 'color': 'black', 'size': '38'}\n",
+      "{'brand': 'Adidas', 'color': 'pink', 'size': '41'}\n",
+      "{'brand': 'Adidas', 'color': 'white', 'size': '36'}\n",
+      "{'brand': 'Adidas', 'color': 'orange', 'size': '36'}\n",
+      "{'brand': 'Nike', 'color': 'pink', 'size': '41'}\n",
+      "{'brand': 'Adidas', 'color': 'pink', 'size': '35'}\n",
+      "{'brand': 'New Balance', 'color': 'orange', 'size': '37'}\n",
+      "{'brand': 'Nike', 'color': 'pink', 'size': '43'}\n",
+      "{'brand': 'Nike', 'color': 'black', 'size': '43'}\n",
+      "{'brand': 'Nike', 'color': 'black', 'size': '42'}\n",
+      "{'brand': 'Nike', 'color': 'black', 'size': '35'}\n",
+      "{'brand': 'Adidas', 'color': 'black', 'size': '41'}\n",
+      "{'brand': 'New Balance', 'color': 'pink', 'size': '40'}\n",
+      "{'brand': 'Adidas', 'color': 'white', 'size': '35'}\n",
+      "{'brand': 'New Balance', 'color': 'pink', 'size': '41'}\n",
+      "{'brand': 'New Balance', 'color': 'orange', 'size': '41'}\n",
+      "{'brand': 'Adidas', 'color': 'orange', 'size': '40'}\n",
+      "{'brand': 'New Balance', 'color': 'orange', 'size': '40'}\n",
+      "{'brand': 'New Balance', 'color': 'white', 'size': '44'}\n",
+      "{'brand': 'New Balance', 'color': 'pink', 'size': '40'}\n",
+      "{'brand': 'Nike', 'color': 'black', 'size': '43'}\n",
+      "{'brand': 'Nike', 'color': 'pink', 'size': '36'}\n",
+      "{'brand': 'New Balance', 'color': 'white', 'size': '39'}\n",
+      "{'brand': 'Nike', 'color': 'black', 'size': '42'}\n",
+      "{'brand': 'Adidas', 'color': 'black', 'size': '41'}\n",
+      "{'brand': 'New Balance', 'color': 'orange', 'size': '40'}\n",
+      "{'brand': 'New Balance', 'color': 'black', 'size': '40'}\n",
+      "{'brand': 'Nike', 'color': 'white', 'size': '37'}\n",
+      "{'brand': 'Adidas', 'color': 'black', 'size': '39'}\n",
+      "{'brand': 'Adidas', 'color': 'black', 'size': '40'}\n",
+      "{'brand': 'Adidas', 'color': 'orange', 'size': '38'}\n",
+      "{'brand': 'New Balance', 'color': 'orange', 'size': '39'}\n",
+      "{'brand': 'Nike', 'color': 'black', 'size': '35'}\n",
+      "{'brand': 'Adidas', 'color': 'white', 'size': '39'}\n",
+      "{'brand': 'Nike', 'color': 'white', 'size': '37'}\n",
+      "{'brand': 'Adidas', 'color': 'orange', 'size': '37'}\n",
+      "{'brand': 'Adidas', 'color': 'pink', 'size': '35'}\n",
+      "{'brand': 'New Balance', 'color': 'orange', 'size': '41'}\n",
+      "{'brand': 'Nike', 'color': 'pink', 'size': '44'}\n",
+      "{'brand': 'Nike', 'color': 'pink', 'size': '38'}\n",
+      "{'brand': 'Adidas', 'color': 'black', 'size': '39'}\n",
+      "{'brand': 'New Balance', 'color': 'white', 'size': '35'}\n",
+      "{'brand': 'Nike', 'color': 'pink', 'size': '40'}\n",
+      "{'brand': 'Nike', 'color': 'white', 'size': '44'}\n",
+      "{'brand': 'Nike', 'color': 'orange', 'size': '38'}\n",
+      "{'brand': 'Adidas', 'color': 'orange', 'size': '42'}\n",
+      "{'brand': 'New Balance', 'color': 'orange', 'size': '43'}\n",
+      "{'brand': 'Adidas', 'color': 'pink', 'size': '39'}\n",
+      "{'brand': 'Adidas', 'color': 'pink', 'size': '41'}\n",
+      "{'brand': 'Adidas', 'color': 'pink', 'size': '39'}\n",
+      "{'brand': 'Nike', 'color': 'white', 'size': '37'}\n",
+      "{'brand': 'Nike', 'color': 'orange', 'size': '38'}\n",
+      "{'brand': 'Adidas', 'color': 'orange', 'size': '39'}\n",
+      "{'brand': 'Nike', 'color': 'pink', 'size': '40'}\n",
+      "{'brand': 'Adidas', 'color': 'white', 'size': '36'}\n",
+      "{'brand': 'Nike', 'color': 'orange', 'size': '40'}\n",
+      "{'brand': 'New Balance', 'color': 'pink', 'size': '40'}\n",
+      "{'brand': 'New Balance', 'color': 'black', 'size': '40'}\n",
+      "{'brand': 'New Balance', 'color': 'pink', 'size': '40'}\n",
+      "{'brand': 'Adidas', 'color': 'pink', 'size': '41'}\n",
+      "{'brand': 'Nike', 'color': 'pink', 'size': '40'}\n",
+      "{'brand': 'Nike', 'color': 'black', 'size': '41'}\n",
+      "{'brand': 'Nike', 'color': 'black', 'size': '39'}\n",
+      "{'brand': 'New Balance', 'color': 'white', 'size': '38'}\n",
+      "{'brand': 'Adidas', 'color': 'black', 'size': '41'}\n",
+      "{'brand': 'Nike', 'color': 'orange', 'size': '36'}\n",
+      "{'brand': 'Nike', 'color': 'black', 'size': '38'}\n",
+      "{'brand': 'New Balance', 'color': 'black', 'size': '40'}\n",
+      "{'brand': 'New Balance', 'color': 'pink', 'size': '40'}\n",
+      "{'brand': 'Adidas', 'color': 'black', 'size': '42'}\n",
+      "{'brand': 'Adidas', 'color': 'white', 'size': '40'}\n",
+      "{'brand': 'New Balance', 'color': 'orange', 'size': '38'}\n",
+      "{'brand': 'Nike', 'color': 'pink', 'size': '41'}\n",
+      "{'brand': 'Adidas', 'color': 'orange', 'size': '37'}\n",
+      "{'brand': 'Nike', 'color': 'black', 'size': '44'}\n",
+      "{'brand': 'Adidas', 'color': 'pink', 'size': '36'}\n",
+      "{'brand': 'Adidas', 'color': 'white', 'size': '35'}\n",
+      "{'brand': 'Nike', 'color': 'black', 'size': '38'}\n",
+      "{'brand': 'Nike', 'color': 'pink', 'size': '42'}\n",
+      "{'brand': 'New Balance', 'color': 'black', 'size': '43'}\n",
+      "{'brand': 'Nike', 'color': 'white', 'size': '38'}\n",
+      "{'brand': 'New Balance', 'color': 'pink', 'size': '39'}\n",
+      "{'brand': 'Nike', 'color': 'orange', 'size': '39'}\n",
+      "{'brand': 'New Balance', 'color': 'orange', 'size': '40'}\n",
+      "{'brand': 'New Balance', 'color': 'white', 'size': '44'}\n",
+      "{'brand': 'Adidas', 'color': 'black', 'size': '42'}\n",
+      "{'brand': 'Nike', 'color': 'black', 'size': '35'}\n",
+      "orange Adidas, size 43 \n",
+      "black Nike, size 41 \n",
+      "black Adidas, size 39 \n",
+      "pink New Balance, size 41 \n",
+      "white Nike, size 44 \n",
+      "orange New Balance, size 38 \n",
+      "pink Nike, size 44 \n",
+      "pink Adidas, size 44 \n",
+      "orange New Balance, size 39 \n",
+      "black New Balance, size 43 \n",
+      "orange New Balance, size 44 \n",
+      "black Nike, size 41 \n",
+      "orange Adidas, size 37 \n",
+      "black Adidas, size 38 \n",
+      "pink Adidas, size 41 \n",
+      "white Adidas, size 36 \n",
+      "orange Adidas, size 36 \n",
+      "pink Nike, size 41 \n",
+      "pink Adidas, size 35 \n",
+      "orange New Balance, size 37 \n",
+      "pink Nike, size 43 \n",
+      "black Nike, size 43 \n",
+      "black Nike, size 42 \n",
+      "black Nike, size 35 \n",
+      "black Adidas, size 41 \n",
+      "pink New Balance, size 40 \n",
+      "white Adidas, size 35 \n",
+      "pink New Balance, size 41 \n",
+      "orange New Balance, size 41 \n",
+      "orange Adidas, size 40 \n",
+      "orange New Balance, size 40 \n",
+      "white New Balance, size 44 \n",
+      "pink New Balance, size 40 \n",
+      "black Nike, size 43 \n",
+      "pink Nike, size 36 \n",
+      "white New Balance, size 39 \n",
+      "black Nike, size 42 \n",
+      "black Adidas, size 41 \n",
+      "orange New Balance, size 40 \n",
+      "black New Balance, size 40 \n",
+      "white Nike, size 37 \n",
+      "black Adidas, size 39 \n",
+      "black Adidas, size 40 \n",
+      "orange Adidas, size 38 \n",
+      "orange New Balance, size 39 \n",
+      "black Nike, size 35 \n",
+      "white Adidas, size 39 \n",
+      "white Nike, size 37 \n",
+      "orange Adidas, size 37 \n",
+      "pink Adidas, size 35 \n",
+      "orange New Balance, size 41 \n",
+      "pink Nike, size 44 \n",
+      "pink Nike, size 38 \n",
+      "black Adidas, size 39 \n",
+      "white New Balance, size 35 \n",
+      "pink Nike, size 40 \n",
+      "white Nike, size 44 \n",
+      "orange Nike, size 38 \n",
+      "orange Adidas, size 42 \n",
+      "orange New Balance, size 43 \n",
+      "pink Adidas, size 39 \n",
+      "pink Adidas, size 41 \n",
+      "pink Adidas, size 39 \n",
+      "white Nike, size 37 \n",
+      "orange Nike, size 38 \n",
+      "orange Adidas, size 39 \n",
+      "pink Nike, size 40 \n",
+      "white Adidas, size 36 \n",
+      "orange Nike, size 40 \n",
+      "pink New Balance, size 40 \n",
+      "black New Balance, size 40 \n",
+      "pink New Balance, size 40 \n",
+      "pink Adidas, size 41 \n",
+      "pink Nike, size 40 \n",
+      "black Nike, size 41 \n",
+      "black Nike, size 39 \n",
+      "white New Balance, size 38 \n",
+      "black Adidas, size 41 \n",
+      "orange Nike, size 36 \n",
+      "black Nike, size 38 \n",
+      "black New Balance, size 40 \n",
+      "pink New Balance, size 40 \n",
+      "black Adidas, size 42 \n",
+      "white Adidas, size 40 \n",
+      "orange New Balance, size 38 \n",
+      "pink Nike, size 41 \n",
+      "orange Adidas, size 37 \n",
+      "black Nike, size 44 \n",
+      "pink Adidas, size 36 \n",
+      "white Adidas, size 35 \n",
+      "black Nike, size 38 \n",
+      "pink Nike, size 42 \n",
+      "black New Balance, size 43 \n",
+      "white Nike, size 38 \n",
+      "pink New Balance, size 39 \n",
+      "orange Nike, size 39 \n",
+      "orange New Balance, size 40 \n",
+      "white New Balance, size 44 \n",
+      "black Adidas, size 42 \n",
+      "black Nike, size 35 \n"
+     ]
+    }
+   ],
+   "source": [
+    "def line_to_dict(one_line):\n",
+    "    brand, color, size = one_line.strip().split('\\t')\n",
+    "    return {'brand': brand,\n",
+    "             'color':  color,\n",
+    "             'size':   size }\n",
+    "\n",
+    "def line_to_dict2(one_line):\n",
+    "    d = dict(zip(['brand', 'color', 'size'],\n",
+    "                     one_line.strip().split('\\t')))\n",
+    "    print(d)\n",
+    "    return d\n",
+    "\n",
+    "shoes = [line_to_dict2(one_line)\n",
+    "        for one_line in open('Files/shoe-data.txt')]\n",
+    "\n",
+    "for one_shoe in shoes:\n",
+    "    print(f\"{one_shoe['color']} {one_shoe['brand']}, size {one_shoe['size']} \")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

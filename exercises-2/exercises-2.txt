@@ -1,0 +1,27 @@
+(1) Given a list of integers, use a list comprehension
+    to calculate the sum of the factorials of those integers.
+
+n! = n-1 * n-2 * n-3 ... 1
+
+5! = 5 * 4 * 3 * 2 * 1
+
+[3, 4, 5]
+
+3! = 3*2*1 = 6
+4! = 4*3*2*1 = 24
+5! = 5*4*3*2*1 = 120
+
+(+ 6 24 120)
+
+(2) From mini-access-log.txt, create a list of the IP
+    addresses in that file.
+
+(3) Create a dictionary (or a variant thereof -- such
+    as Counter) in which the keys are the IP addresses
+    and the values are the number of times that each
+    IP address appeared in the file.  Use the resulting
+    dict/Counter to print each IP address and its times
+
+(4) Create, from linux-etc-passwd.txt, a list of tuples
+    in which each tuple is (username, user_id) .
+    username is field index 0, user_id is field index 2
