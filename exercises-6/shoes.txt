@@ -1,0 +1,12 @@
+# Turn shoe-data.txt into a list of dicts
+
+# Iterate over that list and print each of the dicts out
+
+[
+    {'brand': 'Adidas',
+     'color':'orange',
+     'size':'43'},
+    {'brand': 'Adidas',
+     'color':'orange',
+     'size':'43'},
+    ]
