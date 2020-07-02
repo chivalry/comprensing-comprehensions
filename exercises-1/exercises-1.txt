@@ -1,0 +1,19 @@
+(1) Take
+
+    mylist = [10, 20, 30]
+
+and join it together with '*' characters.
+
+(2) Ask the user to enter multiple hex numbers (digits 0-9,
+    and also a-f), separated by whitespace, and sum
+    those numbers.
+
+    1234 ab56 ffe4
+
+(3) Ask the user to enter words separated by whitespace.
+    Show the number of non-whitespace characters in their
+    input.
+
+    this is a test  # 4 + 2 + 1 + 4 = 11
+
+    
